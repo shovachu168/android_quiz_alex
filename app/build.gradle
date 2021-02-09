@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 30
@@ -39,5 +40,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+
+    // Navigation component
+    def Navigation_version = '2.3.0'
+    implementation "androidx.navigation:navigation-fragment-ktx:$Navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$Navigation_version"
 
 }
