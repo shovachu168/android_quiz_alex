@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Show User</string>
+    <string name="list_user_fragment_title">User List</string>
 </resources>
