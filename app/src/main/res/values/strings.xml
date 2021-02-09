@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Show User</string>
     <string name="list_user_fragment_title">User List</string>
+    <string name="admin_string">Admin</string>
 </resources>
