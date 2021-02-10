@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_navigation_path"
     app:startDestination="@id/usersListFragment">
-    <fragment android:id="@+id/usersListFragment"
+    <fragment
+        android:id="@+id/usersListFragment"
         android:name="com.alex.android_quiz_alex.view.UserListFragment"
         android:label="@string/list_user_fragment_title"
         tools:layout="@layout/list_user_layout">
-        <action android:id="@+id/go_to_detail_page"
-            app:destination="@id/userDetailFragment"/>
+        <action
+            android:id="@+id/go_to_detail_page"
+            app:destination="@id/userDetailFragment" />
     </fragment>
 
-    <fragment android:id="@+id/userDetailFragment"
+    <fragment
+        android:id="@+id/userDetailFragment"
         android:name="com.alex.android_quiz_alex.view.UserDetailsFragment"
         android:label="@string/user_details_fragment_title"
         tools:layout="@layout/user_details_layout">

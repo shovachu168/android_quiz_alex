@@ -3,4 +3,9 @@
     <string name="list_user_fragment_title">User List</string>
     <string name="user_details_fragment_title">User Details</string>
     <string name="admin_string">Admin</string>
+    <string name="user_name_title">Name</string>
+    <string name="user_id_title">ID</string>
+    <string name="user_location_title">Location</string>
+    <string name="user_blog_title">Blog</string>
+    <string name="user_bio_title">Bio</string>
 </resources>

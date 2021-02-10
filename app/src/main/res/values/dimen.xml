@@ -2,11 +2,15 @@
 <resources>
     <dimen name="list_img_size">60dp</dimen>
     <dimen name="progressbar_size">48dp</dimen>
+    <dimen name="user_info_img_size">120dp</dimen>
 
 
     <dimen name="small_padding">5dp</dimen>>
     <dimen name="item_padding">8dp</dimen>
+    <dimen name="detail_padding">8dp</dimen>
 
     <dimen name="title_font">20sp</dimen>
     <dimen name="subTitle_font">18sp</dimen>
+    <dimen name="user_detail_font">18sp</dimen>
+    <dimen name="user_detail_small_font">14sp</dimen>
 </resources>
