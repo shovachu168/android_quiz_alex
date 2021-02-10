@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alex.android_quiz_alex.R
 import com.alex.android_quiz_alex.dataModel.UserModel
 
-class UserItemAdapter(): PagedListAdapter<UserModel, UserItemAdapter.UsersListViewHolder>(
+class UserItemAdapter: PagedListAdapter<UserModel, UserItemAdapter.UsersListViewHolder>(
     usersDiffCallback
 ) {
 

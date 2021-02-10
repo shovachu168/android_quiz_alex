@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="list_img_size">60dp</dimen>
+    <dimen name="progressbar_size">48dp</dimen>
 
-    <dimen name="list_img_size">64dp</dimen>
 
-    <dimen name="user_item_margin">16dp</dimen>
-    <dimen name="item_top_margin">8dp</dimen>
+    <dimen name="small_padding">5dp</dimen>>
 
     <dimen name="title_font">20sp</dimen>
     <dimen name="subTitle_font">18sp</dimen>

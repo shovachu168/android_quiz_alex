@@ -5,44 +5,43 @@
     android:id="@+id/user"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:focusable="true"
     android:clickable="true"
     android:background="?attr/selectableItemBackground"
-    android:padding="@dimen/user_item_margin"
     android:gravity="center_vertical">
 
     <ImageView
         android:id="@+id/user_img"
         android:layout_width="@dimen/list_img_size"
         android:layout_height="@dimen/list_img_size"
+        android:paddingLeft="@dimen/small_padding"
         android:scaleType="centerCrop"
         tools:ignore="ContentDescription"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/item_top_margin"
-        android:layout_width="0dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 0
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/user_name"
             android:textSize="@dimen/title_font"
             android:textStyle="bold"
-            android:layout_width="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/site_admin"
             android:textSize="@dimen/subTitle_font"
-            android:layout_marginLeft="@dimen/item_top_margin"
             android:text="@string/admin_string"
+            android:paddingRight="@dimen/small_padding"
+            android:layout_alignParentRight="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
