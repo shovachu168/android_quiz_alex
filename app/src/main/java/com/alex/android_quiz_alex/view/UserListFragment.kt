@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders.*
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,5 +44,7 @@ class UserListFragment: Fragment(), UserItemAdapter.ItemClickCallback {
 
     override fun onItemClick(userModel: UserModel) {
         println("item click")
+        val direction = UserListFragmentDirections.goToDetailPage(userModel.login)
+        findNavController().navigate(direction)
     }
 }
