@@ -1,4 +1,4 @@
-package com.alex.android_quiz_alex.data
+package com.alex.android_quiz_alex.view
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -15,11 +15,15 @@ import com.alex.android_quiz_alex.dataModel.UserModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class UserItemAdapter: PagedListAdapter<UserModel, UserItemAdapter.UsersListViewHolder>(
+class UserItemAdapter(private val listener: ItemClickCallback): PagedListAdapter<UserModel, UserItemAdapter.UsersListViewHolder>(
     usersDiffCallback
 ) {
 
     private lateinit var mContext: Context
+
+    interface ItemClickCallback {
+        fun onItemClick(userModel: UserModel)
+    }
 
     inner class UsersListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val item: LinearLayout = itemView.findViewById(R.id.user)
@@ -30,13 +34,16 @@ class UserItemAdapter: PagedListAdapter<UserModel, UserItemAdapter.UsersListView
 
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
         val githubUserModel = getItem(position)
-        githubUserModel?.let {
+        githubUserModel?.let { model ->
+            holder.item.setOnClickListener{
+                listener.onItemClick(model)
+            }
             Glide.with(mContext)
-                .load(it.avatarUrl)
+                .load(model.avatarUrl)
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.userImg)
-            holder.userName.text = it.login
-            holder.admin.visibility = if (it.siteAdmin) View.VISIBLE else View.INVISIBLE
+            holder.userName.text = model.login
+            holder.admin.visibility = if (model.siteAdmin) View.VISIBLE else View.INVISIBLE
         }
     }
 

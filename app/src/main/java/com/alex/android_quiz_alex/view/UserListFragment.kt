@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders.*
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.android_quiz_alex.R
-import com.alex.android_quiz_alex.data.UserItemAdapter
 import com.alex.android_quiz_alex.data.UsersListViewModel
+import com.alex.android_quiz_alex.dataModel.UserModel
 
-class UserListFragment : Fragment() {
+class UserListFragment: Fragment(), UserItemAdapter.ItemClickCallback {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +30,7 @@ class UserListFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         val itemViewModel: UsersListViewModel =
             of(this).get(UsersListViewModel::class.java)
-        val adapter = UserItemAdapter()
+        val adapter = UserItemAdapter(this)
         itemViewModel.usersLiveData.observe(viewLifecycleOwner,
             { items ->
                 adapter.submitList(items)
@@ -39,4 +40,7 @@ class UserListFragment : Fragment() {
         return view
     }
 
+    override fun onItemClick(userModel: UserModel) {
+        println("item click")
+    }
 }
