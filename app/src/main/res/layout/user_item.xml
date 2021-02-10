@@ -6,6 +6,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/item_padding"
     android:focusable="true"
     android:clickable="true"
     android:background="?attr/selectableItemBackground"
@@ -15,12 +16,12 @@
         android:id="@+id/user_img"
         android:layout_width="@dimen/list_img_size"
         android:layout_height="@dimen/list_img_size"
-        android:paddingLeft="@dimen/small_padding"
         android:scaleType="centerCrop"
         tools:ignore="ContentDescription"/>
 
     <RelativeLayout
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/small_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 0
@@ -36,7 +37,6 @@
             android:id="@+id/site_admin"
             android:textSize="@dimen/subTitle_font"
             android:text="@string/admin_string"
-            android:paddingRight="@dimen/small_padding"
             android:layout_alignParentRight="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

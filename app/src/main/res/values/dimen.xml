@@ -5,6 +5,7 @@
 
 
     <dimen name="small_padding">5dp</dimen>>
+    <dimen name="item_padding">8dp</dimen>
 
     <dimen name="title_font">20sp</dimen>
     <dimen name="subTitle_font">18sp</dimen>
