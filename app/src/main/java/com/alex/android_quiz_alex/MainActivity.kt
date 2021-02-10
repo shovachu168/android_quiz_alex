@@ -12,17 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setNavigationController()
-        testApi()
-    }
-
-    private fun testApi() {
-        ApiService.sp.getUsersList(
-            UsersItemDataSource.now_page,
-            UsersItemDataSource.PAGE_SIZE, success = {
-                                                     println("get api success $it")
-        }, failure = {
-                println("get api failed $it")
-        })
     }
 
     private fun setNavigationController() {
