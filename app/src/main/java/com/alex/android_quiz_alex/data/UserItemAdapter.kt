@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.android_quiz_alex.R
 import com.alex.android_quiz_alex.dataModel.UserModel
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 class UserItemAdapter: PagedListAdapter<UserModel, UserItemAdapter.UsersListViewHolder>(
     usersDiffCallback
@@ -29,6 +31,10 @@ class UserItemAdapter: PagedListAdapter<UserModel, UserItemAdapter.UsersListView
     override fun onBindViewHolder(holder: UsersListViewHolder, position: Int) {
         val githubUserModel = getItem(position)
         githubUserModel?.let {
+            Glide.with(mContext)
+                .load(it.avatarUrl)
+                .apply(RequestOptions.circleCropTransform())
+                .into(holder.userImg)
             holder.userName.text = it.login
             holder.admin.visibility = if (it.siteAdmin) View.VISIBLE else View.INVISIBLE
         }

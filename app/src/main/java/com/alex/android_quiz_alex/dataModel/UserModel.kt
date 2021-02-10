@@ -13,4 +13,5 @@ data class UserModel(
     @SerializedName("id") var id: Long,
     @SerializedName("login") var login: String,
     @SerializedName("site_admin") var siteAdmin: Boolean,
+    @SerializedName("avatar_url") var avatarUrl: String,
 )
