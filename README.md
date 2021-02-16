@@ -2,6 +2,7 @@
 Kotlin, Programing language
 
 user list fragment used MVVM, Architectural pattern
+
 user detail fragment used MVP, Architectural pattern
 
 # 使用套件
