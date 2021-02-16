@@ -1,7 +1,8 @@
 # 使用語法及架構
 Kotlin, Programing language
 
-MVVM, Architectural pattern
+user list fragment used MVVM, Architectural pattern
+user detail fragment used MVP, Architectural pattern
 
 # 使用套件
 Retrofit, HTTP client platform
