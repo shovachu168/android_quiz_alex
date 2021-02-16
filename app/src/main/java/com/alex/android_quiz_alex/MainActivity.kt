@@ -9,13 +9,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setNavigationController()
-    }
-
-    private fun setNavigationController() {
         val navController = Navigation.findNavController(this, R.id.root_fragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
-    override fun onSupportNavigateUp() = Navigation.findNavController(this, R.id.fragment_navigation_path).navigateUp()
+    override fun onSupportNavigateUp() = Navigation.findNavController(this, R.id.root_fragment).navigateUp()
 }
