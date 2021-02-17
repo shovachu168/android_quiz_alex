@@ -1,15 +1,15 @@
 package com.alex.android_quiz_alex.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
-import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
 import com.alex.android_quiz_alex.dataModel.UserModel
 
 class UsersListViewModel: ViewModel() {
     lateinit var usersLiveData: LiveData<PagedList<UserModel>>
-    lateinit var liveDataSource: LiveData<PageKeyedDataSource<Int, UserModel>>
+    var liveData: MutableLiveData<UsersItemDataSource> = MutableLiveData()
 
     init {
         initUsersListFactory()
@@ -17,7 +17,7 @@ class UsersListViewModel: ViewModel() {
 
     private fun initUsersListFactory() {
         val itemDataSourceFactory = UsersDataSourceFactory()
-        liveDataSource = itemDataSourceFactory.getItemLiveDataSource()
+        liveData = itemDataSourceFactory.liveData
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(true)
             .setInitialLoadSizeHint(UsersItemDataSource.PAGE_SIZE)

@@ -1,6 +1,7 @@
 package com.alex.android_quiz_alex.data
 
 
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.alex.android_quiz_alex.dataModel.UserModel
 import com.alex.android_quiz_alex.network.ApiService
@@ -13,13 +14,18 @@ class UsersItemDataSource : PageKeyedDataSource<Int, UserModel>() {
         const val now_page = 1
     }
 
+    val isLoadingStatus: MutableLiveData<Boolean> = MutableLiveData()
+
+
     override fun loadInitial(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, UserModel>
     ) {
         ApiService.sp.getUsersList(now_page, PAGE_SIZE, success = {
+            isLoadingStatus.postValue(false)
             callback.onResult(it.items, null, now_page + 1)
         }, failure = {
+            isLoadingStatus.postValue(false)
         })
     }
 
@@ -32,6 +38,5 @@ class UsersItemDataSource : PageKeyedDataSource<Int, UserModel>() {
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, UserModel>) {
-
     }
 }

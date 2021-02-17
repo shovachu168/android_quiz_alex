@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders.*
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -30,20 +32,21 @@ class UserListFragment: Fragment(), UserItemAdapter.ItemClickCallback {
         var progressBar = view.findViewById<ProgressBar>(R.id.loading_progress)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
-        val itemViewModel: UsersListViewModel =
-            of(this).get(UsersListViewModel::class.java)
         val adapter = UserItemAdapter(this)
-        itemViewModel.usersLiveData.observe(viewLifecycleOwner,
-            { items ->
-                adapter.submitList(items)
-                progressBar.visibility = View.GONE
+        val itemViewModel = ViewModelProvider(requireActivity()).get(UsersListViewModel::class.java)
+        itemViewModel.usersLiveData.observe(viewLifecycleOwner, { items ->
+            adapter.submitList(items)
+        })
+        itemViewModel.liveData.observe(viewLifecycleOwner, {
+            it.isLoadingStatus.observe(viewLifecycleOwner, { loadStatus ->
+                progressBar.visibility = if (loadStatus) View.VISIBLE else View.GONE
             })
+        })
         recyclerView.adapter = adapter
         return view
     }
 
     override fun onItemClick(userModel: UserModel) {
-        println("item click")
         val direction = UserListFragmentDirections.goToDetailPage(userModel.login)
         findNavController().navigate(direction)
     }
